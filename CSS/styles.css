@@ -11,6 +11,21 @@
     }
 }
 
+.container {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    font-weight: 600;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+        "nav"
+        "header"
+        "food-panel"
+        "ads"
+        "footer";
+}
+
+
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
@@ -19,87 +34,17 @@ body {
 
 
 .logo {
-    color: rgb(255, 157, 0);
-    font-weight: 700;
+    color: #1a9bbe;
+    font-weight: 800;
 }
-
-
-
-
-/* Sign-Up Page */
-
-#signup-body {
-    background: linear-gradient(#f6ffff, #cde7f7);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#restaraunt-image {
-    animation: slideUp 1s ease both;
-    animation-delay: 0.2s;
-    object-fit: cover;
-    border-radius: 20px 0px 0px 20px;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-}
-
-#submit-button {
-    width: 100%;
-    padding: 12px 24px;
-    background-color: #22b0d7;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    border: solid rgb(41, 188, 229) 2px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-    transition: 0.2s ease, transform 0.1s ease;
-}
-
-#submit-button:disabled {
-    border: solid #494949 2px;
-    background-color: #444444;
-}
-
-#submit-button:hover:not(:disabled) {
-    background-color: #6fe0ff;
-    border: solid #6fe0ff 2px;
-    color: #ffffff;
-}
-
-.form-container {
-    animation: slideUp 1s ease forwards;
-    display: grid;
-    place-items: center;
-    padding: 50px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-}
-
-.form-container label, input {
-    padding: 10px;
-}
-
-.form-container input {
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-    border: 1px solid #adadad;
-    border-radius: 5px;
-    background-color: #ffffff;
-    transition: 0.2s ease, transform 0.1s ease;
-}
-
-.form-container input:hover {
-    border: solid 1px #101010;
-    
-}
-
 
 
 
 /* Shop Style */
+
+#welcome-message {
+    color: #25383d;
+}
 
 #shop-body {
     background: linear-gradient(#f6ffff, #cde7f7);
@@ -107,13 +52,16 @@ body {
 }
 
 .navbar {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-    background-color: #516064;
+    background-color: #d8f7ff;
     border-radius: 5px;
-    color: #ffffff;
+    color: #fffefe;
+    margin-top: 0px;
     padding: 15px 30px;
 }
 
@@ -127,6 +75,6 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(0, 118, 164);
     text-decoration: none;
 }
