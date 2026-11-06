@@ -1,80 +1,225 @@
 /* Global Styles */
 
+/* Custom Fonts - SF Pro Text & Display */
+@font-face {
+  font-family: "SF-Pro Text";
+  src: url("../Assets/apple-fonts/SF-Pro-Text-Regular.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF-Pro Text";
+  src: url("../Assets/apple-fonts/SF-Pro-Text-Medium.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF-Pro Display";
+  src: url("../Assets/apple-fonts/SF-Pro-Display-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 @keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .container {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: larger;
-    font-weight: 600;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto auto;
-    grid-template-areas:
-        "nav"
-        "header"
-        "food-panel"
-        "ads"
-        "footer";
+  font-family: "SF-Pro Text", sans-serif;
+  font-size: 1.5rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-areas:
+    "nav"
+    "header"
+    "food-panel"
+    "ads"
+    "footer";
 }
-
 
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: larger;
-    font-weight: 600;
+  font-family: "SF-Pro Text", sans-serif;
+  font-size: 1.5rem;
 }
-
 
 .logo {
-    color: #1a9bbe;
-    font-weight: 800;
+  color: #065e77ff;
+  font-weight: 800;
+  font-size: 1.8rem;
 }
 
 
-
-/* Shop Style */
-
-#welcome-message {
-    color: #25383d;
+.store-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 30px;
+}
+.welcome-message {
+  color: #25383d;
 }
 
-#shop-body {
-    background: linear-gradient(#f6ffff, #cde7f7);
-    min-height: 100vh;
+.welcome-message.icon {
+  position: absolute;
+  bottom: 3rem;
+  width: 4rem;
+  animation: slideUp 1s ease both;
+  animation-delay: 1s;
 }
 
+.welcome-message.title {
+  animation: slideUp 1s ease both;
+  animation-delay: 0.5s;
+  font-size: 4rem;
+}
+
+.welcome-message.name {
+  animation: slideUp 1s ease both;
+  animation-delay: 0.7s;
+  font-weight: 400;
+}
+.store-title {
+  text-align: center;
+  font-size: 3rem;
+}
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 1rem;
+  background: linear-gradient(#f6ffff, #cde7f7);
+}
+.main {
+  padding: 12rem 0rem;
+  background: linear-gradient(#cde7f7, #f6ffff);
+}
+.item-rating {
+  display: flex;
+  gap: 0.3rem;
+}
+.item-rating svg {
+  width: 24px;
+  fill: #36525aff !important;
+}
+.item-button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.item-button .buy-button {
+  border: 1px solid #36525aff;
+  background: none;
+  color: black;
+  border-radius: 12rem;
+  padding: 0.7rem;
+}
+.item-title {
+  font-size: 1.25rem;
+}
+.item-button .atc-button {
+  background-color: #36525aff;
+  border: none;
+  color: white;
+  border-radius: 12rem;
+  padding: 0.7rem;
+}
+.btn {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  outline: none;
+  background: #25383d;
+  color: white;
+  border-radius: 0.6rem;
+  font-family: "SF-Pro Text", sans-serif;
+  font-size: 1rem;
+}
+.btn.second {
+  background: #cde7f7;
+  color: black;
+}
 .navbar {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-    background-color: #d8f7ff;
-    border-radius: 5px;
-    color: #fffefe;
-    margin-top: 0px;
-    padding: 15px 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 72px;
+  padding: 0px 2rem;
+  background: #f6ffff;
+  z-index: 3;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
+  justify-self: center;
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  font-weight: 500;
+  padding: 0;
+  font-size: 1rem;
 }
 
 .nav-links a {
-    color: rgb(0, 118, 164);
-    text-decoration: none;
+  color: #065e77ff;
+  text-decoration: none;
+}
+
+.item-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.store-item-wrapper {
+    display: grid;
+    margin: 3rem;
+    gap: 3rem;
+}
+
+/* Phone */
+@media screen and (min-width: 750px) {
+    .store-item-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 1111px) {
+    .store-item-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1450px) {
+    .store-item-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
