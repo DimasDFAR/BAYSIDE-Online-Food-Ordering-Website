@@ -265,6 +265,10 @@ body {
   animation: slideUp 1s ease both;
 }
 
+.btn.order {
+  animation: slideUp 1s ease both;
+}
+
 .quantity {
   color: #000000;
   line-height: 3rem;

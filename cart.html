@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="CSS/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bayside Restaraunt</title>
@@ -44,7 +45,8 @@
         </div>
       </nav>
       <div class="hero cart">
-        <h1>Cart</h1>
+        <h1 id="cart-text">Cart</h1>
+        <button class="btn order" id="order">Order Now</button>
       </div>
       <div class="main cart">
         <div class="cart-container"></div>

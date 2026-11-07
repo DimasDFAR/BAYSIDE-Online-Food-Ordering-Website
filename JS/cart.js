@@ -4,6 +4,10 @@ let totalItem = 0;
 
 const storeContainer = document.querySelector(".cart-container");
 
+const cartText = document.getElementById("cart-text");
+
+const orderButton = document.getElementById("order");
+
 const products = [
   {
     id: 1,
@@ -167,16 +171,7 @@ const products = [
   },
 ];
 
-let cartAttributes = products.map((product) => {
-  const matchingID = cart.find((item) => item.foodID === product.id);
-
-  return {
-    ...product,
-    amount: matchingID ? matchingID.amount : 0,
-  };
-});
-
-console.log({ cartAttributes });
+let totalPrice = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   updateUI();
@@ -185,6 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
 function updateUI() {
   totalItem = cart.reduce((total, food) => total + food.amount, 0);
   document.getElementById("item-amount").innerText = totalItem;
+
+  totalPrice = cart.reduce((total, food) => {
+    const foodItem = products.find((product) => product.id === food.foodID);
+
+    return total + foodItem.price * food.amount;
+  }, 0);
+  cartText.innerText = `Cart - $${totalPrice}`;
 }
 
 function saveCartToLocalStorage() {
@@ -247,3 +249,34 @@ function removeCartItem(id) {
 }
 
 setupCart();
+
+orderButton.addEventListener("click", () => {
+  if (totalItem > 0) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#009919",
+      cancelButtonColor: "rgb(197, 0, 0)",
+      confirmButtonText: "Yes, order now!",
+    }).then((result) => {
+      if (result.isConfirmed)
+        Swal.fire({
+          title: "Ordered!",
+          text: "Your food will come in shortly.",
+          icon: "success",
+        });
+      cart = [];
+      saveCartToLocalStorage();
+      updateUI();
+      setupCart();
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "You have nothing in your cart!",
+    });
+  }
+});
