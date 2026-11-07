@@ -309,6 +309,57 @@ body {
   border-radius: 0.8rem;
 }
 
+.about-container {
+  display: block;
+  justify-content: center;
+  margin: 6rem;
+}
+
+.about-container hr {
+  margin: 6rem 0rem;
+}
+
+.section {
+  background-color: #cde7f7;
+  max-width: 50rem;
+  padding: 5rem;
+  border-radius: 1rem;
+  margin: 2rem 0rem;
+}
+
+.section.left {
+  justify-self: start;
+}
+.section.right {
+  justify-self: end;
+}
+
+.section.middle {
+  margin: 2rem 0rem;
+  justify-self: center;
+  max-width: 90rem;
+  display: block;
+}
+
+.section.middle img {
+  width: 10rem;
+  border-radius: 60rem;
+}
+
+.our-pfp {
+  justify-self: center;
+}
+
+.section.middle a {
+  text-decoration: none;
+  color: #006a88;
+}
+
+.section.middle a:hover {
+  text-decoration: underline;
+  color: #006a88;
+}
+
 /* Phone */
 @media screen and (min-width: 750px) {
   .store-item-wrapper {
