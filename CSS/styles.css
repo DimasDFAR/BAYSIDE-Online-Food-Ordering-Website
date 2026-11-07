@@ -19,7 +19,8 @@
 
 @font-face {
   font-family: "SF-Pro Display";
-  src: url("../Assets/apple-fonts/SF-Pro-Display-Regular.otf") format("opentype");
+  src: url("../Assets/apple-fonts/SF-Pro-Display-Regular.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -31,7 +32,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -67,13 +70,13 @@ body {
   font-size: 1.8rem;
 }
 
-
 .store-item {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
   margin-bottom: 30px;
 }
+
 .welcome-message {
   color: #25383d;
 }
@@ -89,7 +92,7 @@ body {
 .welcome-message.title {
   animation: slideUp 1s ease both;
   animation-delay: 0.5s;
-  font-size: 4rem;
+  font-size: 6rem;
 }
 
 .welcome-message.name {
@@ -111,10 +114,32 @@ body {
   gap: 1rem;
   background: linear-gradient(#f6ffff, #cde7f7);
 }
+
+.hero.cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 1rem;
+  gap: 1rem;
+  background: linear-gradient(#f6ffff, #cde7f7);
+  padding-top: 10rem;
+}
+
+.hero.cart h1 {
+  animation: slideUp 1s ease both;
+}
+
 .main {
   padding: 12rem 0rem;
   background: linear-gradient(#cde7f7, #f6ffff);
 }
+
+.main.cart {
+  padding: 5rem 0rem;
+}
+
 .item-rating {
   display: flex;
   gap: 0.3rem;
@@ -136,9 +161,7 @@ body {
   border-radius: 12rem;
   padding: 0.7rem;
 }
-.item-title {
-  font-size: 1.25rem;
-}
+
 .item-button .atc-button {
   background-color: #36525aff;
   border: none;
@@ -156,6 +179,14 @@ body {
   font-family: "SF-Pro Text", sans-serif;
   font-size: 1rem;
 }
+
+.btn:hover {
+  box-shadow: 0px 0px 1px 1px #00000079;
+  transition:
+    0.2s ease,
+    transform 0.1s ease;
+}
+
 .btn.second {
   background: #cde7f7;
   color: black;
@@ -190,36 +221,96 @@ body {
 }
 
 .item-image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    align-self: center;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  align-self: center;
 }
 
 .store-item-wrapper {
-    display: grid;
-    margin: 3rem;
-    gap: 3rem;
+  display: grid;
+  margin: 3rem;
+  gap: 3rem;
+}
+
+.cart-item {
+  display: flex;
+  margin: 2rem 3rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 1px 1px #00000079;
+  animation: slideUp 1s ease both;
+}
+
+.item-info {
+  padding: 0.5rem 2rem;
+}
+
+.item-info p {
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.item-title.cart {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.quantity {
+  color: #000000;
+  line-height: 3rem;
+}
+
+.quantity-changer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #648b96;
+  border-radius: 20px;
+  border: 1px solid #36525aff;
+  background: none;
+  color: black;
+  padding: 0.3rem;
+}
+
+.quantity-changer button {
+  font-size: 2rem;
+  width: 3rem;
+  padding: 0rem 0.5rem;
+  border-radius: 15px;
+  border: 0px solid #dbdbdb;
+  background-color: #25383d;
+  color: #f6ffff;
+}
+
+.remove-btn {
+  background-color: rgb(255, 67, 67);
+  color: #f6ffff;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 0.5rem;
+  margin: 0.6rem 0rem;
+  border-radius: 0.8rem;
 }
 
 /* Phone */
 @media screen and (min-width: 750px) {
-    .store-item-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .store-item-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Tablet */
 @media screen and (min-width: 1111px) {
-    .store-item-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .store-item-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Desktop */
 @media screen and (min-width: 1450px) {
-    .store-item-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .store-item-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

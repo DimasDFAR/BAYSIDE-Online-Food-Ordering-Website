@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bayside Restaraunt</title>
+  </head>
+  <body id="shop-body">
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">BAYSIDE.</div>
+        <ul class="nav-links">
+          <li><a href="shop.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#food">Food</a></li>
+          <li
+            style="
+              display: flex;
+              white-space: nowrap;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <a href="cart.html"
+              >Cart -
+              <span
+                style="
+                  color: white;
+                  background-color: #25383d;
+                  padding: 0.2rem;
+                  border-radius: 1rem;
+                  padding-inline: 0.5rem;
+                "
+                id="item-amount"
+              >
+                0
+              </span></a
+            >
+          </li>
+        </ul>
+        <div style="justify-self: flex-end">
+          <a href="index.html"><button class="btn">Logout</button></a>
+        </div>
+      </nav>
+      <div class="hero cart">
+        <h1>Cart</h1>
+      </div>
+      <div class="main cart">
+        <div class="cart-container">
+          <div class="cart-item">
+            <img src="Assets/MCpfp.png" class="item-image" />
+            <div class="item-info">
+              <p class="item-title cart">Fried Rice</p>
+              <p class="item-price cart">Price: $10</p>
+              <hr />
+              <p>Total Price: $40</p>
+              <div class="quantity-changer">
+                <button>-</button>
+                <p class="quantity">4</p>
+                <button>+</button>
+              </div>
+              <button class="remove-btn">Remove Item</button>
+            </div>
+          </div>
+        </div>
+        <script src="JS/cart.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

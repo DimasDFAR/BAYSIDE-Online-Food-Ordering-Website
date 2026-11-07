@@ -11,17 +11,40 @@
       <nav class="navbar">
         <div class="logo">BAYSIDE.</div>
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
+          <li><a href="#home">Home</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Food</a></li>
-          <li><a href="#">Cart</a></li>
+          <li><a href="#food">Food</a></li>
+          <li
+            style="
+              display: flex;
+              white-space: nowrap;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <a href="cart.html"
+              >Cart -
+              <span
+                style="
+                  color: white;
+                  background-color: #25383d;
+                  padding: 0.2rem;
+                  border-radius: 1rem;
+                  padding-inline: 0.5rem;
+                "
+                id="item-amount"
+              >
+                0
+              </span></a
+            >
+          </li>
         </ul>
         <div style="justify-self: flex-end">
-          <a href="index.html"><button class="btn">Change User</button></a>
+          <a href="index.html"><button class="btn">Logout</button></a>
         </div>
       </nav>
       <div>
-        <div class="hero">
+        <div class="hero" id="home">
           <h1 class="welcome-message title">Welcome</h1>
           <h1 id="welcome-message" class="welcome-message name">Someone</h1>
           <svg
@@ -38,7 +61,9 @@
         </div>
 
         <div class="main food-list">
-          <h1 class="store-title">Explore Our Menu</h1>
+          <section id="food">
+            <h1 class="store-title">Explore Our Menu</h1>
+          </section>
           <div class="store-item-wrapper"></div>
         </div>
         <script src="JS/shop.js"></script>
