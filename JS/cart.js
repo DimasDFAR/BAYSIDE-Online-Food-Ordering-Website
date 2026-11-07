@@ -168,7 +168,7 @@ const products = [
 ];
 
 let cartAttributes = products.map((product) => {
-  const matchingID = cart.find((item) => item.id === product.id);
+  const matchingID = cart.find((item) => item.foodID === product.id);
 
   return {
     ...product,
@@ -192,24 +192,58 @@ function saveCartToLocalStorage() {
 }
 
 function setupCart() {
-  storeContainer.innerHTML = cart.map(
-    (item) => `
-          <div class="cart-item">
-            <img src="Assets/MCpfp.png" class="item-image" />
-            <div class="item-info">
-              <p class="item-title cart">Fried Rice</p>
-              <p class="item-price cart">Price: $10</p>
-              <hr />
-              <p>Total Price: $40</p>
-              <div class="quantity-changer">
-                <button>-</button>
-                <p class="quantity">4</p>
-                <button>+</button>
+  saveCartToLocalStorage();
+
+  storeContainer.innerHTML = cart
+    .map((item) =>
+      item.amount > 0
+        ? (() => {
+            const foodItem = products.find(
+              (productItem) => productItem.id === item.foodID,
+            );
+
+            return `
+              <div class="cart-item">
+                <img src="${foodItem.image}" class="item-image" />
+                <div class="item-info">
+                  <p class="item-title cart">${foodItem.name}</p>
+                  <p class="item-price cart">Price: $${foodItem.price}</p>
+                  <hr />
+                  <p>Total Price: $${foodItem.price * item.amount}</p>
+                  <div class="quantity-changer">
+                    <button onclick="decreaseQuantity(${item.foodID})" ${item.amount < 2 ? "disabled" : ""}>-</button>
+                    <p class="quantity">${item.amount}</p>
+                    <button onclick="increaseQuantity(${item.foodID})">+</button>
+                  </div>
+                  <button class="remove-btn" onclick="removeCartItem(${item.foodID})">Remove Item</button>
+                </div>
               </div>
-              <button class="remove-btn">Remove Item</button>
-          </div>
-        `,
-  );
+            `;
+          })()
+        : "",
+    )
+    .join("");
+}
+
+function decreaseQuantity(id) {
+  let foodItem = cart.find((item) => item.foodID === id);
+  foodItem.amount -= 1;
+  setupCart();
+  updateUI();
+}
+
+function increaseQuantity(id) {
+  let foodItem = cart.find((item) => item.foodID === id);
+  foodItem.amount += 1;
+  setupCart();
+  updateUI();
+}
+
+function removeCartItem(id) {
+  let foodItem = cart.find((item) => item.foodID === id);
+  foodItem.amount = 0;
+  setupCart();
+  updateUI();
 }
 
 setupCart();

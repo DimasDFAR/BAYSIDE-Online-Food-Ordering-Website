@@ -241,11 +241,13 @@ body {
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0px 0px 1px 1px #00000079;
-  animation: slideUp 1s ease both;
 }
 
 .item-info {
   padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .item-info p {
@@ -257,6 +259,10 @@ body {
 .item-title.cart {
   font-size: 4rem;
   font-weight: 600;
+}
+
+.cart-container {
+  animation: slideUp 1s ease both;
 }
 
 .quantity {
@@ -273,6 +279,7 @@ body {
   background: none;
   color: black;
   padding: 0.3rem;
+  min-width: 16rem;
 }
 
 .quantity-changer button {
@@ -283,6 +290,10 @@ body {
   border: 0px solid #dbdbdb;
   background-color: #25383d;
   color: #f6ffff;
+}
+
+.quantity-changer button:disabled {
+  background-color: #cde7f7;
 }
 
 .remove-btn {
