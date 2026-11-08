@@ -1,15 +1,15 @@
-import { products } from "../shop.js";
+import { products } from "../products.js";
 import { increaseQuantity, decreaseQuantity, removeCartItem } from "../cart.js";
 
 class CartItem extends HTMLElement {
   constructor() {
     super();
-    this.foodID = this.getAttribute("foodID") || "67";
-    this.foodAmount = this.getAttribute("amount") || "67";
-    this.food = products.find((product) => product.id === this.foodID);
+    this.foodID = this.getAttribute("foodID") || "1";
+    this.foodAmount = this.getAttribute("amount") || "1";
+    this.food = products.find((product) => product.id === Number(this.foodID));
     this.attachShadow({ mode: "open" });
   }
-  connectCallback() {
+  connectedCallback() {
     this.shadowRoot.innerHTML = `
     <style>
         .item-image {
@@ -60,6 +60,27 @@ class CartItem extends HTMLElement {
         }
         .quantity-changer button:disabled {
             background-color: #cde7f7;
+        }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .cart-item {
+            display: flex;
+            margin: 2rem 3rem;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0px 0px 1px 1px #00000079;
+        }
+        .remove-btn {
+            background-color: rgb(255, 67, 67);
+            color: #f6ffff;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 0.5rem;
+            margin: 0.6rem 0rem;
+            border-radius: 0.8rem;
         }
     </style>
     

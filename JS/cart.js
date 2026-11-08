@@ -1,4 +1,4 @@
-import { products } from "./shop.js";
+import { products } from "./products.js";
 import "./components/cart-item.js";
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -23,10 +23,7 @@ function updateUI() {
 
   totalPrice = cart.reduce((total, food) => {
     const foodItem = products.find((product) => product.id === food.foodID);
-    if (!foodItem) {
-      console.warn(`Product not found: ${food.foodID}`);
-      return total;
-    }
+
     return total + foodItem.price * food.amount;
   }, 0);
   cartText.innerText = `Cart - $${totalPrice}`;
@@ -43,7 +40,7 @@ function setupCart() {
     .map((item) =>
       item.amount > 0
         ? (() => {
-            return `<cart-item foodID="${item.id}" amount="${item.amount}"></cart-item>`;
+            return `<cart-item foodID="${item.foodID}" amount="${item.amount}"></cart-item>`;
           })()
         : "",
     )
