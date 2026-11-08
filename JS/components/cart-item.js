@@ -107,7 +107,7 @@ class CartItem extends HTMLElement {
     this.incButton.addEventListener("click", () => {
       increaseQuantity(this.foodID);
     });
-    this.atcButton.addEventListener("click", () => {
+    this.decButton.addEventListener("click", () => {
       decreaseQuantity(this.foodID);
     });
     this.remButton.addEventListener("click", () => {

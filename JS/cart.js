@@ -7,7 +7,7 @@ let totalItem = 0;
 
 const storeContainer = document.querySelector(".cart-container");
 
-const cartText = document.getElementById("cart-text");
+const cartText = document.querySelector("#cart-text");
 
 const orderButton = document.getElementById("order");
 
@@ -22,7 +22,9 @@ function updateUI() {
   document.getElementById("item-amount").innerText = totalItem;
 
   totalPrice = cart.reduce((total, food) => {
-    const foodItem = products.find((product) => product.id === food.foodID);
+    const foodItem = products.find(
+      (product) => product.id === Number(food.foodID),
+    );
 
     return total + foodItem.price * food.amount;
   }, 0);
